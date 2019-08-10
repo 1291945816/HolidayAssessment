@@ -22,10 +22,12 @@ public class getItem {
     private courseService service;
     //@Autowired
     //private courseItem item;
+    
+    
 
-
-    private String username = "1800300916";
-    private String passwd="140892";
+    //涉及隐私
+    private String username = "xxxx";
+    private String passwd="xxxx";
     private final String URL="http://172.16.1.99/student/public/login.asp";
 
     @Autowired
