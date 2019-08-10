@@ -15,8 +15,9 @@ import java.util.List;
  */
 @Component
 public class DownLoadHtml {
-    private static final String USER_NAME = "1800300916";
-    private static final String PASSWORD ="140892";
+    //涉及隐私
+    private static final String USER_NAME = "xxxxx";
+    private static final String PASSWORD ="xxxxx";
     private static final String URL = "http://bkjw.guet.edu.cn/?mCode=000708";
 
     /**
