@@ -6,7 +6,7 @@
 
 ### 数据库表的设计
 
-![](https://github.com/1291945816/HolidayAssessment/blob/master/image/Snipaste_2019-08-06_18-10-29.pngg)
+![](https://github.com/1291945816/HolidayAssessment/blob/master/image/Snipaste_2019-08-06_18-10-29.png)
 
 ### 爬取效果图
 
