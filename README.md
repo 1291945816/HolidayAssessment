@@ -4,10 +4,10 @@
 ### 数据库的设计
 ![](https://github.com/1291945816/HolidayAssessment/blob/master/image/Snipaste_2019-08-09_20-24-03.png)
 
-### 爬取效果
+### 爬取效果对比（p1 vs p2）
 ![](https://github.com/1291945816/HolidayAssessment/blob/master/image/Snipaste_2019-08-10_20-03-16.png)
 
-![](https://github.com/1291945816/HolidayAssessment/blob/master/image/Snipaste_2019-08-10_20-00-49.png)
+![](https://github.com/1291945816/HolidayAssessment/blob/master/image/Snipaste_2019-08-10_21-34-44.png)
 
 
 ## 项目前的小试牛刀
