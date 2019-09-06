@@ -34,7 +34,7 @@ public class IdentificationCode {
         instance.setDatapath("D:\\javaCode\\kexieHolidayAssessment\\src\\main\\resources\\tessdata");
         try{
             String result = instance.doOCR(image);
-            result.trim().replaceAll("[^0-9]","");
+            //result = result.trim().replaceAll("[^0-9]","");
             return result;
 
         }catch(TesseractException e){
@@ -104,8 +104,8 @@ public class IdentificationCode {
 
 
         }catch (Exception e){
-            e.printStackTrace();
-        }
+                e.printStackTrace();
+                }
 
-    }
-}
+                }
+                }

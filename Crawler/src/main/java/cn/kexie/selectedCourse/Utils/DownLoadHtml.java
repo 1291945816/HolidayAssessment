@@ -1,5 +1,7 @@
 package cn.kexie.selectedCourse.Utils;
 
+import com.sun.org.apache.bcel.internal.generic.GOTO;
+import javassist.bytecode.stackmap.BasicBlock;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.stereotype.Component;
@@ -15,10 +17,9 @@ import java.util.List;
  */
 @Component
 public class DownLoadHtml {
-    //涉及隐私
-    private static final String USER_NAME = "xxxxx";
-    private static final String PASSWORD ="xxxxx";
-    private static final String URL = "http://bkjw.guet.edu.cn/?mCode=000708";
+    private static final String USER_NAME = "";
+    private static final String PASSWORD ="";
+    private static final String URL = "";
 
     /**
      *
@@ -32,22 +33,38 @@ public class DownLoadHtml {
         driver.get(URL);
 
         List<String> pageHtml = new ArrayList<String>();
-        //输入用户名以及密码
-        driver.findElement(By.id("textfield-1013-bodyEl")).findElement(By.id("textfield-1013-inputEl")).sendKeys(USER_NAME);
-        driver.findElement(By.id("textfield-1014-bodyEl")).findElement(By.id("textfield-1014-inputEl")).sendKeys(PASSWORD);
+       while (true) {
+           try {
+           Thread.sleep(1000);
+           //输入用户名以及密码
+           driver.findElement(By.id("textfield-1013-bodyEl")).findElement(By.id("textfield-1013-inputEl")).sendKeys(USER_NAME);
+           driver.findElement(By.id("textfield-1014-bodyEl")).findElement(By.id("textfield-1014-inputEl")).sendKeys(PASSWORD);
 
-        //截取全屏
-        //截取全屏 并截取至验证码部分
-        try {
-            File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            BufferedImage image = ImageIO.read(src);
-            image = image.getSubimage(1037, 516, 58, 16);
-            ImageIO.write(image, "png", new File("D:\\javaCode\\kexieHolidayAssessment\\src\\main\\resources\\Image\\screen.png"));
-            String s = IdentificationCode.process();
-            //输入验证码
-            driver.findElement(By.id("CheckCode-inputEl")).sendKeys(s);
-            Thread.sleep(4000);
 
+           //截取全屏
+           //截取全屏 并截取至验证码部分
+
+               File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+               BufferedImage image = ImageIO.read(src);
+               image = image.getSubimage(2185, 1045, 95, 22);
+               ImageIO.write(image, "png", new File("D:\\javaCode\\kexieHolidayAssessment\\src\\main\\resources\\Image\\screen.png"));
+               String s = IdentificationCode.process();
+               //输入验证码
+               driver.findElement(By.id("CheckCode-inputEl")).sendKeys(s);
+               Thread.sleep(5000);
+               if (driver.findElements(By.cssSelector("#tool-1027")).size() > 0) {
+                   driver.findElements(By.cssSelector("#tool-1027")).get(0).click();
+                   driver.navigate().refresh();
+               } else {
+                   break;
+               }
+           } catch (Exception e1) {
+               e1.printStackTrace();
+           }
+       }
+
+    try {
+            System.out.println("我出来了");
             //关闭公告窗口
             driver.findElement(By.cssSelector("#tool-1043")).click();
             Thread.sleep(2000);
@@ -57,7 +74,7 @@ public class DownLoadHtml {
             Thread.sleep(2000);
 
             //点击下拉
-            driver.findElement(By.id("ext-gen1193")).click();
+            driver.findElement(By.cssSelector("#ext-gen1195")).click();
             Thread.sleep(2000);
 
             List<WebElement> eles = driver.findElements(By.cssSelector("[class=x-list-plain]>li"));
@@ -73,7 +90,7 @@ public class DownLoadHtml {
             pageHtml.add(driver.getPageSource());
 
             //切换页面  再次获取
-            driver.findElement(By.id("ext-gen1193")).click();
+            driver.findElement(By.cssSelector("#ext-gen1195")).click();
             Thread.sleep(3000);
 
 
@@ -86,7 +103,7 @@ public class DownLoadHtml {
             pageHtml.add(driver.getPageSource());
 
             //切换页面  再次获取
-            driver.findElement(By.id("ext-gen1193")).click();
+            driver.findElement(By.cssSelector("#ext-gen1195")).click();
             Thread.sleep(3000);
 
             eles.get(1).click();

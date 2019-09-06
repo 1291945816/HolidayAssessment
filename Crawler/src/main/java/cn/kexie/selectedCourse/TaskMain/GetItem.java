@@ -17,6 +17,7 @@ import java.util.List;
 //由
 @Component
 public class GetItem {
+
     //自己注入dao
     @Autowired
     private ItemRespo itemRespo;
